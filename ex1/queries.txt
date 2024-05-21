@@ -1,0 +1,48 @@
+1.Quantas classes estão definidas na Ontologia?
+
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+
+select (count(?c) as ?classCount) where{
+    
+    ?c a owl:Class.
+    
+}
+
+2.Quantas Object Properties estão definidas na Ontologia?
+
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+select (count(?op) as ?objectPropertyCount) where{
+    
+    ?op a owl:ObjectProperty.
+    
+}
+
+3.Quantos indivíduos existem na tua ontologia?
+
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+select (count(?ni) as ?individualsCount) where{
+    
+    ?ni a owl:NamedIndividual.
+    
+}
+
+4.Quem planta tomates?
+
+PREFIX : <http://rpcw.di.uminho.pt/2024/historia/>
+
+select ?agr where{
+    ?tomate a :Vegetal.
+    ?tomate :nomeVegetal "Tomate".
+    ?agr :cultiva ?tomate.
+    
+}
+
+5.Quem contrata trabalhadores temporários?
+
+PREFIX : <http://rpcw.di.uminho.pt/2024/historia/>
+
+select distinct ?agr where{
+    ?agr a :Agricultor.
+    ?agr :contrata ?trabs.
+    
+}
